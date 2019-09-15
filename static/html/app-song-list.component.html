@@ -1,0 +1,24 @@
+<div class="app-song-list-component">
+    <div class="app-song-list-component-song-list">
+        <div class="app-song-list-component-song-list-head">
+            <div ng-repeat="head in $ctrl.fields" ng-style="{flex: head.flex}">
+                {{head.label}}
+            </div>
+        </div>
+        <div ng-repeat="song in $ctrl.songList track by $index"
+             ng-init="outerIndex = $index"
+             class="app-song-list-component-song-list-item"
+             ng-class="{selected: equals(song, $ctrl.currentSong)}"
+             ng-click="$ctrl.playSong(song)">
+            <div class="app-song-list-component-song-list-item-body">
+                <div ng-repeat="head in $ctrl.fields" ng-style="{flex: head.flex}">
+                    <div ng-if="$index === 0">
+                        <div ng-if="!equals(song, $ctrl.currentSong)">{{outerIndex + 1}}</div>
+                        <i ng-if="equals(song, $ctrl.currentSong)" class="iconfont icon-audio-mid"></i>
+                    </div>
+                    <div ng-if="$index !== 0">{{song[head.field]}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

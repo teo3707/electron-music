@@ -1,0 +1,36 @@
+<script type="text/ng-template" id="/action.html">
+    <div ng-if="action && !action.children"
+         class="action"
+         ng-class="{'selected': $ctrl.selectedAction === action}"
+         ng-click="$ctrl.selectedAction = action; action.action()"
+         ripple>
+        {{action.label}}
+    </div>
+    <div ng-if="action && action.children">
+        <div class="action-title">{{action.label}}</div>
+        <div ng-repeat="action in action.children">
+            <div ng-include src="'/action.html'"></div>
+        </div>
+    </div>
+    <div ng-if="!action" class="divider"></div>
+</script>
+
+<div class="app-side-bar-component">
+    <div class="history-back">
+        <img src="static/images/arrow-left.png" alt="返回" ng-click="$ctrl.back()">
+    </div>
+
+    <div class="user-icon-container">
+        <img ng-src="{{$ctrl.user.icon}}"
+             alt="用户头像"
+             draggable="false"
+             ng-click="$ctrl.pickUserIcon()">
+        <span ng-click="$ctrl.gotoUserEdit()">{{$ctrl.user.name}}</span>
+    </div>
+
+    <div class="actions">
+        <div ng-repeat="action in $ctrl.actions">
+            <div ng-include src="'/action.html'"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "iMusic",
+  "version": "1.0.0",
+  "description": "electron demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "distWin": "electron-builder --win"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.4",
+    "electron-builder": "^21.2.0"
+  },
+  "dependencies": {},
+  "build": {
+    "electronDownload": {
+      "mirror": "https://npm.taobao.org/mirrors/electron/"
+    }
+  }
+}

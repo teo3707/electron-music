@@ -1,0 +1,445 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+.app-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.app-root .app-side-bar-and-view-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+}
+.app-root .app-side-bar-and-view-container .app-side-bar-container {
+  min-width: 200px;
+  max-width: 200px;
+  background: #EDEDED;
+  height: 100%;
+  overflow: hidden;
+}
+.app-root .app-side-bar-and-view-container .app-view-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.app-root .app-player-container {
+  min-height: 66px;
+  max-height: 66px;
+  overflow: hidden;
+  box-shadow: 0 -1px #EDEDED;
+  z-index: 2;
+}
+app-home {
+  color: #4A4A4A;
+}
+app-home .app-home-component-search {
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+app-home .app-home-component-search > * {
+  margin: 0 auto;
+  width: 300px;
+  font-size: 14px;
+  background: #EDEDED;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+app-home .app-home-component-search > * i {
+  vertical-align: middle;
+  font-size: 14px;
+  color: #414141;
+}
+app-home .app-home-component-search > * span {
+  padding: 0 4px;
+  color: #B3B3B3;
+}
+app-home .app-home-component .song-category {
+  display: flex;
+  padding: 12px;
+}
+app-home .app-home-component .song-category-avatar img {
+  width: 200px;
+  height: 200px;
+  border-radius: 6px;
+}
+app-home .app-home-component .song-category-list {
+  flex-grow: 1;
+  margin-left: 20px;
+  font-size: 14px;
+}
+app-home .app-home-component .song-category-list-item {
+  display: flex;
+  padding: 8px 12px;
+}
+app-home .app-home-component .song-category-list-item-title {
+  flex: 6;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+app-home .app-home-component .song-category-list-item-author {
+  flex: 4;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #A4A4A4;
+}
+app-home .app-home-component .song-category-list-item:nth-child(2n + 1) {
+  background: #FAFAFA;
+}
+app-home .app-home-component .song-category-list-item:hover {
+  background: #EDEDED;
+}
+app-home .app-home-component .song-category-list-more {
+  color: #777;
+  padding: 6px 8px;
+}
+app-home .app-home-component .song-category-list-more i {
+  padding-left: 6px;
+  font-size: 12px;
+}
+app-player .app-player-component {
+  height: 100%;
+  position: relative;
+}
+app-player .app-player-component .app-player-slider {
+  position: fixed;
+  bottom: 64px;
+  left: 0;
+  width: 100%;
+}
+app-player .app-player-component .app-player {
+  display: flex;
+  height: 100%;
+  vertical-align: middle;
+}
+app-player .app-player-component .app-player-song-info {
+  flex: 1;
+  align-self: center;
+  display: flex;
+  min-width: 33%;
+  max-width: 33%;
+  overflow: hidden;
+}
+app-player .app-player-component .app-player-song-info-thumbnail {
+  margin: 0 8px;
+}
+app-player .app-player-component .app-player-song-info-thumbnail img {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+}
+app-player .app-player-component .app-player-song-info-desc {
+  align-self: center;
+}
+app-player .app-player-component .app-player-song-info-desc-name-and-author {
+  font-size: 12px;
+  color: #BEBEBE;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+app-player .app-player-component .app-player-song-info-desc-name-and-author-name {
+  color: #4D4D4D;
+}
+app-player .app-player-component .app-player-song-info-desc-time {
+  color: #BEBEBE;
+  font-size: 14px;
+}
+app-player .app-player-component .app-player-controls {
+  flex: 1;
+  align-self: center;
+  text-align: center;
+}
+app-player .app-player-component .app-player-controls i {
+  padding: 12px;
+  margin: 6px;
+  color: #C3463A;
+  border-radius: 50%;
+}
+app-player .app-player-component .app-player-controls .icon-play,
+app-player .app-player-component .app-player-controls .icon-pause {
+  background: #C3463A;
+  color: white;
+}
+app-player .app-player-component .app-player-sub-controls {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  color: #7D7D7D;
+}
+app-player .app-player-component .app-player-sub-controls i {
+  padding: 8px;
+  border-radius: 50%;
+}
+.app-side-bar-component {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  color: #444444;
+}
+.app-side-bar-component .user-icon-container {
+  margin-top: 26px;
+  padding: 0 12px;
+}
+.app-side-bar-component .user-icon-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  user-select: none;
+  vertical-align: middle;
+}
+.app-side-bar-component .user-icon-container span {
+  display: inline-block;
+  font-size: 14px;
+  min-width: 60px;
+  padding: 6px;
+}
+.app-side-bar-component .history-back img {
+  padding: 6px;
+  width: 24px;
+  height: 24px;
+  filter: opacity(0.5);
+  border-radius: 50%;
+}
+.app-side-bar-component .history-back img:hover {
+  background: #ccc;
+}
+.app-side-bar-component .actions {
+  margin-top: 20px;
+}
+.app-side-bar-component .actions .action {
+  padding: 12px 20px;
+  font-size: 14px;
+}
+.app-side-bar-component .actions .action:hover {
+  background: #F0F0F0;
+}
+.app-side-bar-component .actions .action-title {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.app-side-bar-component .actions .selected {
+  color: red;
+}
+.app-buttons-component .app-buttons-item {
+  display: inline-block;
+  margin: 0 12px;
+}
+.btn-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100px;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+}
+.btn-medium {
+  min-width: 60px;
+  font-size: 14px;
+}
+.btn-normal {
+  border-radius: 500px;
+  background: #6c757d;
+  color: white;
+}
+.divider {
+  width: 100%;
+  height: 2px;
+  background: black;
+}
+.ripple {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #AAAAAA1F;
+  border-radius: 50%;
+  animation: navCircle 1s;
+}
+@keyframes navCircle {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(200);
+  }
+}
+app-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px black;
+}
+app-slider .app-slider-component {
+  width: 100%;
+  height: 4px;
+  position: relative;
+}
+app-slider .app-slider-component-indicator {
+  position: absolute;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+app-song-list .app-song-list-component-song-list {
+  font-size: 14px;
+}
+app-song-list .app-song-list-component-song-list-head {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  color: #989898;
+}
+app-song-list .app-song-list-component-song-list-head > * {
+  min-width: 0;
+  overflow: hidden;
+  padding: 8px 6px;
+}
+app-song-list .app-song-list-component-song-list-head > *:last-of-type {
+  min-width: 70px;
+  max-width: 70px;
+}
+app-song-list .app-song-list-component-song-list-head > *:first-of-type {
+  min-width: 30px;
+  max-width: 30px;
+}
+app-song-list .app-song-list-component-song-list-item {
+  color: #333333;
+}
+app-song-list .app-song-list-component-song-list-item-body {
+  display: flex;
+}
+app-song-list .app-song-list-component-song-list-item-body > * {
+  min-width: 0;
+  overflow-x: hidden;
+  padding: 8px 6px;
+}
+app-song-list .app-song-list-component-song-list-item-body > * > * {
+  max-width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+app-song-list .app-song-list-component-song-list-item-body > *:last-of-type {
+  min-width: 70px;
+  max-width: 70px;
+  color: #989898;
+}
+app-song-list .app-song-list-component-song-list-item-body > *:first-of-type {
+  min-width: 30px;
+  max-width: 30px;
+  margin: 2px;
+  color: #989898;
+}
+app-song-list .app-song-list-component-song-list-item:nth-child(2n) {
+  background: #FAFAFA;
+}
+app-song-list .app-song-list-component-song-list-item:hover {
+  background: #F0F0F0;
+}
+app-song-list .app-song-list-component-song-list .selected {
+  background: #F0F0F0;
+}
+app-song-list .app-song-list-component-song-list .selected * {
+  color: #C3463A !important;
+}
+app-search .app-search-component .search-box {
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+app-search .app-search-component .search-box .search-box-container {
+  background: #EDEDED;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 20px;
+  display: flex;
+}
+app-search .app-search-component .search-box .search-box-container i {
+  font-size: 12px;
+  margin-top: 2px;
+  padding: 8px;
+  color: #3F3F3F;
+}
+app-search .app-search-component .search-box .search-box-container input {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: #EDEDED;
+  width: 100%;
+  font-size: 14px;
+  color: #424242;
+}
+app-user-edit .app-user-edit-component {
+  width: 60%;
+  padding: 20px 12px;
+}
+app-user-edit .app-user-edit-component-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+app-user-edit .app-user-edit-component-footer > * {
+  margin-top: 40px;
+}
+.form-editor-component {
+  text-align: left;
+}
+.form-editor-component-field {
+  display: flex;
+  margin: 12px 0;
+}
+.form-editor-component-field input {
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+.form-editor-component-field-label {
+  min-width: 80px;
+  max-width: 80px;
+  padding: 0 8px;
+  text-align: right;
+  font-size: 14px;
+}
+.form-editor-component-field-color {
+  width: 100%;
+}
+.form-editor-component-field-text {
+  width: 100%;
+}
+.form-editor-component-field-radio input {
+  height: unset;
+}
+.form-editor-component-field-radio label {
+  margin: 0 6px;
+}
+.form-editor-component-field-select {
+  width: 100%;
+}
+.form-editor-component-field-number {
+  width: 100%;
+}

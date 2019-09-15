@@ -1,0 +1,38 @@
+<div class="form-editor-component">
+    <div class="form-editor-component-field" ng-repeat="field in $ctrl.fields">
+        <div ng-if="field.type !== 'custom'" class="form-editor-component-field-label">{{field.label}}</div>
+        <input ng-if="field.type === 'color'"
+               ng-model="field.value"
+               ng-attr-placeholder="{{field.placeholder}}"
+               class="form-editor-component-field-color">
+
+        <input ng-if="field.type === 'text'"
+               ng-model="field.value"
+               ng-attr-placeholder="{{field.placeholder}}"
+               class="form-editor-component-field-text">
+
+        <input ng-if="field.type === 'number'"
+               ng-model="field.value"
+               type="number"
+               ng-attr-placeholder="{{field.placeholder}}"
+               class="form-editor-component-field-number">
+
+        <div ng-if="field.type === 'radio'"
+             class="form-editor-component-field-radio">
+             <label ng-repeat="option in field.options">
+                 <input type="radio" ng-value="option.value" ng-model="field.value">
+                 <span>{{option.label}}</span>
+             </label>
+        </div>
+
+        <select ng-if="field.type === 'select'"
+                ng-options="o.value as o.label for o in field.options"
+                ng-model="field.value"
+                class="form-editor-component-field-select"></select>
+        <dynamic-wrap ng-if="field.type === 'custom'"
+                      model="field"
+                      name="{{field.componentName}}"
+                      style="width: 100%;">
+        </dynamic-wrap>
+    </div>
+</div>

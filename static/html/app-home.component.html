@@ -1,0 +1,21 @@
+<div class="app-home-component">
+    <div class="app-home-component-search">
+        <div ng-click="$ctrl.linkTo('/search')"><i class="iconfont icon-search"></i><span>搜索</span></div>
+    </div>
+    <div ng-repeat="type in $ctrl.songTypes">
+        <div ng-if="type.fetched" class="song-category">
+            <div class="song-category-avatar">
+                <img ng-src="{{type.picUrl}}" nt-attr-alt="{{type.label}}" draggable="false">
+            </div>
+            <div class="song-category-list">
+                <div ng-repeat="song in type.songList.slice(0, 5)"
+                     ng-click="$ctrl.emitPlay(song, type.songList)"
+                     class="song-category-list-item">
+                    <div class="song-category-list-item-title">{{song.songName}}</div>
+                    <div class="song-category-list-item-author">{{song.author}}</div>
+                </div>
+                <div ripple class="song-category-list-more" ng-click="$ctrl.viewList('temp', type.songList)">查看全部<i class="iconfont icon-arrow-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>

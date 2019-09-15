@@ -1,0 +1,10 @@
+<div class="app-search-component">
+    <div class="search-box">
+        <div class="search-box-container">
+            <i class="iconfont icon-search"></i>
+            <input type="text" ng-model="$ctrl.keyword" ng-keyup="$ctrl.search($event)">
+            <i class="iconfont icon-close" ng-show="$ctrl.keyword" ng-click="$ctrl.keyword = ''"></i>
+        </div>
+    </div>
+    <app-song-list ng-if="$ctrl.songList" song-list="$ctrl.songList" list-type="temp"></app-song-list>
+</div>

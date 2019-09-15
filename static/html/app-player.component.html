@@ -1,0 +1,45 @@
+<div class="app-player-component">
+    <app-slider class="app-player-slider"
+                ng-model="positionRatio"
+                ng-change="$ctrl.onChange()"
+                color="red">
+    </app-slider>
+
+    <div class="app-player">
+        <div class="app-player-song-info">
+            <div class="app-player-song-info-thumbnail" ng-if="$ctrl.currentSong">
+                <img ng-src="{{$ctrl.currentSong.thumbnail}}" alt="当前歌曲缩略图" onerror="this.src='static/images/default-song-thumbnail.png'">
+            </div>
+            <div class="app-player-song-info-desc" ng-if="$ctrl.currentSong">
+                <div class="app-player-song-info-desc-name-and-author">
+                    <span class="app-player-song-info-desc-name-and-author-name">{{$ctrl.currentSong.songName}}</span>
+                    <span>-</span>
+                    <span class="app-player-song-info-desc-name-and-author-author">{{$ctrl.currentSong.author}}</span>
+                </div>
+                <div class="app-player-song-info-desc-time">
+                    <span>{{$ctrl.state.currentTime | clockTime}}</span>
+                    <span>/</span>
+                    <span>{{$ctrl.state.duration | clockTime}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-player-controls">
+            <i ng-repeat="control in $ctrl.controls"
+               ng-class="control.clazz"
+               ng-click="control.click(control)"></i>
+        </div>
+
+        <div class="app-player-sub-controls">
+            <i ng-repeat="control in $ctrl.subControls"
+               ng-class="control.clazz"
+               ng-click="control.click(control)"></i>
+        </div>
+    </div>
+</div>
+<div style="width: 0; height: 0; overflow: hidden;">
+    <audio ng-ref="audioRef"
+           ng-src="{{$ctrl.playUrl}}"
+           controlsList="nodownload"
+           controls="controls"></audio>
+</div>
