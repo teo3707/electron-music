@@ -8,8 +8,6 @@
 
 ![screen-shot](/dist/screen-shot/4.png)
 
-![screen-shot](/dist/screen-shot/5.png)
-
 #### todos：
 ##### 1.ui美化
 ##### 2.添加网易接口
